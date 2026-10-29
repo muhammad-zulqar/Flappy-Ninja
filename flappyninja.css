@@ -1,0 +1,42 @@
+:root {
+  --bg: #090d1f;
+  --panel: rgba(18, 24, 53, .78);
+  --line: rgba(157, 177, 255, .16);
+  --text: #f5f7ff;
+  --muted: #8e98bd;
+  --cyan: #51e4ff;
+  --purple: #a777ff;
+  --pink: #ff6eb4;
+  font-family: "DM Sans", sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  min-height: 100vh; margin: 0; color: var(--text);
+  background: radial-gradient(circle at 75% 10%, #1b2250 0, transparent 34rem), var(--bg);
+}
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .3; background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 44px 44px; }
+.app-shell { width: min(1280px, calc(100% - 48px)); margin: auto; padding: 38px 0 24px; }
+.topbar, .brand, .top-actions, .game-footer, .mini-stats, .mission-heading, .mission-line { display: flex; align-items: center; }
+.topbar { justify-content: space-between; margin-bottom: 30px; }
+.brand { gap: 13px; }.brand-mark { display: grid; place-items: center; width: 43px; height: 43px; border: 1px solid #6c70ff; border-radius: 14px; color: var(--cyan); box-shadow: 0 0 22px #5965ff55; font-size: 21px; }
+.eyebrow, .stat-label, .mission-heading, .mission-line span, .mini-stats span { letter-spacing: .16em; font-size: 10px; font-weight: 700; color: var(--muted); }
+h1, h2, p { margin: 0; } h1 { font: 700 22px "Space Grotesk"; } h1 span { color: var(--cyan); } .eyebrow { margin-bottom: 3px; }
+.top-actions { gap: 10px; }.icon-button { width: 39px; height: 39px; border: 1px solid var(--line); background: #161d3d; color: #c4ccf0; border-radius: 12px; cursor: pointer; font-weight: 700; }
+.icon-button:hover { border-color: var(--cyan); color: var(--cyan); }
+.game-layout { display: grid; grid-template-columns: 180px minmax(400px, 720px) 180px; justify-content: center; align-items: center; gap: 28px; }
+.stats-panel, .mission-panel { display: grid; gap: 16px; }
+.stat-card, .tip-card, .rank-card { border: 1px solid var(--line); border-radius: 18px; background: var(--panel); backdrop-filter: blur(14px); padding: 20px; }
+.stat-card strong { display: block; margin: 6px 0 15px; font: 600 42px "Space Grotesk"; }
+.score-bar, .rank-track { height: 5px; background: #242d52; border-radius: 10px; overflow: hidden; }.score-bar i, .rank-track i { display: block; height: 100%; width: 12%; border-radius: inherit; background: linear-gradient(90deg, var(--purple), var(--cyan)); transition: width .3s; }
+.mini-stats { justify-content: space-between; gap: 8px; padding: 0 5px; }.mini-stats div { flex: 1; }.mini-stats strong { display: block; padding-top: 6px; font: 600 20px "Space Grotesk"; }
+.tip-card { display: flex; gap: 10px; padding: 14px; }.tip-card strong { font-size: 12px; }.tip-card p { margin-top: 4px; color: var(--muted); font-size: 11px; line-height: 1.4; }.tip-icon { color: var(--cyan); font-size: 20px; }
+.game-card { border: 1px solid #4d5bb0; border-radius: 24px; padding: 9px; background: linear-gradient(145deg, #1d2554, #101633); box-shadow: 0 26px 70px #0008, 0 0 70px #5364df1a; }
+.canvas-wrap { position: relative; overflow: hidden; border-radius: 17px; aspect-ratio: 1; background: #111a3a; }.canvas-wrap canvas { display: block; width: 100%; height: 100%; }
+.game-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 30px; background: linear-gradient(180deg, #0d1533aa, #0b1028e8); transition: opacity .25s; }.game-overlay.hidden { opacity: 0; pointer-events: none; }
+.overlay-icon { display: grid; place-items: center; width: 62px; height: 62px; margin-bottom: 18px; border: 1px solid #6f6fff; border-radius: 20px; color: var(--cyan); font-size: 30px; box-shadow: 0 0 28px #5de8ff44; }.game-overlay h2 { margin: 8px 0 10px; font: 600 clamp(28px, 5vw, 46px) "Space Grotesk"; }.game-overlay > p:not(.eyebrow) { max-width: 290px; color: #a8b2dc; font-size: 13px; line-height: 1.6; }
+.primary-button { margin-top: 24px; border: 0; border-radius: 12px; padding: 14px 22px; background: linear-gradient(100deg, #856aff, #4eddfc); color: #080d20; font: 700 13px "DM Sans"; cursor: pointer; box-shadow: 0 7px 24px #6d79ff55; }.primary-button span { padding-left: 12px; font-size: 18px; }.primary-button:hover { transform: translateY(-2px); }
+.game-footer { justify-content: center; gap: 22px; padding: 13px 0 3px; color: var(--muted); font-size: 11px; }.game-footer kbd { padding: 3px 6px; border: 1px solid var(--line); border-radius: 5px; color: #ccd3f5; font: 700 9px "DM Sans"; }
+.mission-panel { padding-top: 30px; }.mission-heading { gap: 8px; color: #b6c0ea; font-size: 10px; }.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #63edb0; box-shadow: 0 0 10px #63edb0; }.mission-line { justify-content: space-between; border-bottom: 1px solid var(--line); padding: 11px 1px; }.mission-line strong { font: 600 10px "Space Grotesk"; }.threat { color: var(--pink); }.rank-card { margin-top: 3px; }.rank-card strong { display: block; margin: 5px 0 13px; font: 600 19px "Space Grotesk"; }.rank-card small { display: block; margin-top: 9px; color: var(--muted); font-size: 10px; }
+.footer-note { margin-top: 22px; text-align: center; color: #586184; font-size: 11px; }.footer-note span { padding: 0 8px; color: var(--cyan); }
+@media (max-width: 900px) { .game-layout { grid-template-columns: minmax(0, 680px); }.stats-panel, .mission-panel { grid-template-columns: repeat(2, 1fr); }.stat-card { grid-row: span 2; }.tip-card { align-items: center; }.mission-panel { padding-top: 0; }.mission-heading { grid-column: span 2; } }
+@media (max-width: 550px) { .app-shell { width: calc(100% - 24px); padding-top: 22px; }.topbar { margin-bottom: 18px; }.game-layout { gap: 16px; }.stats-panel, .mission-panel { gap: 9px; }.stat-card, .tip-card, .rank-card { padding: 14px; border-radius: 14px; }.stat-card strong { font-size: 31px; }.game-footer { gap: 9px; font-size: 9px; }.game-footer kbd { font-size: 8px; } }

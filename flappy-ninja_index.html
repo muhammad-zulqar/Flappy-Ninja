@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090d1f" />
+    <title>Flappy Ninja — Impossible Rooftop Run</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="flappyninja.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">✦</div>
+          <div>
+            <p class="eyebrow">IMPOSSIBLE ROOFTOP RUN</p>
+            <h1>Flappy <span>Ninja</span></h1>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" id="soundButton" aria-label="Toggle sound">◉</button>
+          <button class="icon-button" id="pauseButton" aria-label="Pause game">Ⅱ</button>
+        </div>
+      </header>
+      <section class="game-layout">
+        <aside class="stats-panel">
+          <div class="stat-card">
+            <span class="stat-label">CURRENT SCORE</span>
+            <strong id="score">0</strong>
+            <div class="score-bar"><i id="scoreProgress"></i></div>
+          </div>
+          <div class="mini-stats">
+            <div><span>BEST RUN</span><strong id="bestScore">0</strong></div>
+            <div><span>COMBO</span><strong id="combo">x1</strong></div>
+          </div>
+          <div class="tip-card">
+            <span class="tip-icon">↗</span>
+            <div>
+              <strong>Stay sharp</strong>
+              <p>Every gate speeds up the city.</p>
+            </div>
+          </div>
+        </aside>
+        <section class="game-card" aria-label="Flappy Ninja game">
+          <div class="canvas-wrap">
+            <canvas id="gameCanvas" width="720" height="720"></canvas>
+            <div class="game-overlay" id="gameOverlay">
+              <div class="overlay-icon" id="overlayIcon">✦</div>
+              <p class="eyebrow" id="overlayEyebrow">READY TO RUN?</p>
+              <h2 id="overlayTitle">Run the rooftops.</h2>
+              <p id="overlayText">Tap, click, or press space to make your ninja jump over deadly rooftop obstacles.</p>
+              <button class="primary-button" id="startButton">Start mission <span>→</span></button>
+            </div>
+          </div>
+          <div class="game-footer">
+            <span><kbd>SPACE</kbd> jump</span>
+            <span><kbd>P</kbd> pause</span>
+            <span><kbd>R</kbd> restart</span>
+          </div>
+        </section>
+        <aside class="mission-panel">
+          <div class="mission-heading"><span class="live-dot"></span><span>LIVE MISSION</span></div>
+          <div class="mission-line"><span>LEVEL</span><strong>LEVEL 1</strong></div>
+          <div class="mission-line"><span>WIND</span><strong id="windValue">CALM</strong></div>
+          <div class="mission-line"><span>THREAT</span><strong class="threat">RISING</strong></div>
+          <div class="rank-card">
+            <span class="stat-label">NEXT RANK</span>
+            <strong id="rankName">ROOKIE</strong>
+            <div class="rank-track"><i id="rankProgress"></i></div>
+            <small id="rankHint">5 points to Shadow</small>
+          </div>
+        </aside>
+      </section>
+      <footer class="footer-note">Built for reflexes <span>•</span> Best experienced with sound on</footer>
+    </main>
+    <script src="flappyninja.js"></script>
+  </body>
+</html>
